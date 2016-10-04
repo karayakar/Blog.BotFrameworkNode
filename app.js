@@ -1,5 +1,6 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+var configurationHelper= require('Helpers/ConfigurationHelper.js');
 
 //=========================================================
 // Bot Setup
@@ -12,10 +13,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
 
 // Create chat bot
-var connector = new builder.ChatConnector({
-    appId: "66dd1dc9-3070-4337-896f-77e8af460f33",
-    appPassword: "ujQfy6CfhCnPwFJ5VDckZoX"
-});
+var connector = new builder.ChatConnector(configurationHelper.ChatConnectorConfig);
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
