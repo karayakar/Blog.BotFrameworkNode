@@ -1,0 +1,9 @@
+{
+  "name": "Blog.BotFrameworkNode",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "botbuilder": "^3.2.3",
+    "restify": "^4.1.1"
+  }
+}
