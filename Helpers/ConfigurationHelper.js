@@ -9,6 +9,4 @@ var _config= {
 
     }
 };
-
-
 exports.CONFIGURATIONS = _config;

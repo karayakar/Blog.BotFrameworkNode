@@ -1,6 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
-var config = require('./Helpers/ConfigurationHelper.js');
+var config = require('./Helpers/ConfigurationHelper');
+var visionService= require("./Helpers/VisionServiceHelper");
 
 //=========================================================
 // Bot Setup
@@ -25,5 +26,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    session.send("Hello World");
+    visionService.describeImage("http://www.w3schools.com/css/img_fjords.jpg", function(error, response, body){
+        session.send(response);
+    });
 });
