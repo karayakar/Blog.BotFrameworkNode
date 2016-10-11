@@ -26,7 +26,7 @@ exports.extractCaption = function _extractCaption(bodyMessage) {
 
     if (typeof desc.captions !== "undefined" &&
         desc.captions.length > 0) {
-        return desc.captions[0].text
+        return desc.captions[0].text;
     }
 
     return "Oops, I can't recognize it :( !";

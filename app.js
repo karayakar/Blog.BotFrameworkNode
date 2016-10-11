@@ -36,6 +36,6 @@ bot.dialog('/', function (session) {
     }
 
     visionService.describeImage(extractedUrl, function (error, response, body) {
-        session.send(visionService.describeImage(body));
+        session.send(visionService.extractCaption(body));
     })
 });
