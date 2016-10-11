@@ -1,7 +1,7 @@
 var _config= {
     CHAT_CONNECTOR: {
         APP_ID: "66dd1dc9-3070-4337-896f-77e8af460f33",
-        APP_PASSWORD: "ujQfy6CfhCnPwFJ5VDckZoX"
+        APP_PASSWORD: "uL00DnAM8aDkfGvxFjkGoV3"
     },
     COMPUTER_VISION_SERVICE:{
         API_URL: "https://api.projectoxford.ai/vision/v1.0/",

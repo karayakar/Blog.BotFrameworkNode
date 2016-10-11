@@ -27,6 +27,7 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
     visionService.describeImage("http://www.w3schools.com/css/img_fjords.jpg", function (error, response, body) {
-        session.send(response);
+        console.log(body.description.captions[0].text);
+        session.send(body.description.captions[0].text);
     })
 });
