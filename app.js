@@ -1,6 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 var config = require('./Helpers/ConfigurationHelper');
+var botHelper = require("./Helpers/BotHelper");
 var visionService= require("./Helpers/VisionService");
 
 //=========================================================
@@ -26,8 +27,17 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    visionService.describeImage("http://www.w3schools.com/css/img_fjords.jpg", function (error, response, body) {
-        console.log(body.description.captions[0].text);
+    console.log(session.message);
+
+    var extractedUrl = botHelper.extractUrl(session.message);
+
+    if (extractedUrl === "") {
+        session.send("Please, send me an image or link");
+    }
+
+    console.log(extractedUrl);
+
+    visionService.describeImage(extractedUrl, function (error, response, body) {
         session.send(body.description.captions[0].text);
     })
 });
