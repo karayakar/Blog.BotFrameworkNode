@@ -1,7 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 var config = require('./Helpers/ConfigurationHelper');
-var visionService= require("./Helpers/VisionServiceHelper");
+var visionService= require("./Helpers/VisionService");
 
 //=========================================================
 // Bot Setup
