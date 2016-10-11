@@ -1,7 +1,4 @@
-﻿
-
-
-exports.extractUrl = function _extractUrl(message) {
+﻿exports.extractUrl = function _extractUrl(message) {
 
     if (message.type !== "message") return;
 
@@ -11,24 +8,22 @@ exports.extractUrl = function _extractUrl(message) {
     }
 
     if (typeof message.text !== "") {
-        return findUrls(message.text);
+        return findUrl(message.text);
     }
 
     return "";
 };
 
 
-function findUrls(text) {
+function findUrl(text) {
     var source = (text || '').toString();
-    var urlArray = [];
-    var url;
     var matchArray;
 
     // Regular expression to find FTP, HTTP(S) and email URLs.
     var regexToken = /(((http|https?):\/\/)[\-\w@:%_\+.~#?,&\/\/=]+)/g;
 
     // Iterate through any URLs in the text.
-    if((matchArray = regexToken.exec(source)) !== null) {
+    if ((matchArray = regexToken.exec(source)) !== null) {
         var token = matchArray[0];
         return token;
     }

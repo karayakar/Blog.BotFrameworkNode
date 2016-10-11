@@ -2,7 +2,7 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var config = require('./Helpers/ConfigurationHelper');
 var botHelper = require("./Helpers/BotHelper");
-var visionService= require("./Helpers/VisionService");
+var visionService = require("./Services/VisionService");
 
 //=========================================================
 // Bot Setup
@@ -35,9 +35,7 @@ bot.dialog('/', function (session) {
         session.send("Please, send me an image or link");
     }
 
-    console.log(extractedUrl);
-
     visionService.describeImage(extractedUrl, function (error, response, body) {
-        session.send(body.description.captions[0].text);
+        session.send(visionService.describeImage(body));
     })
 });
