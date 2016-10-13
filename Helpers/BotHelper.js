@@ -8,14 +8,14 @@
     }
 
     if (typeof message.text !== "") {
-        return findUrl(message.text);
+        return _findUrl(message.text);
     }
 
     return "";
 };
 
 
-function findUrl(text) {
+function _findUrl(text) {
     var source = (text || '').toString();
     var matchArray;
 
